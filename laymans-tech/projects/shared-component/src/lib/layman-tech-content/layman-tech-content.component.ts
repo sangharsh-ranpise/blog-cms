@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'lib-layman-tech-content',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./layman-tech-content.component.css']
 })
 export class LaymanTechContentComponent implements OnInit {
-
-  constructor() { }
+  topicName: string = '';
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    console.log("OK")
+    this.route.paramMap.subscribe(res => {
+      this.topicName = res.get('topicName');
+      console.log(res);
+    })
   }
 
 }
