@@ -6,9 +6,10 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from "@angular/common";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FirstBlogComponent } from './first-blog/first-blog.component';
+import { AllTopicsCardComponent } from './all-topics-card/all-topics-card.component';
 
 @NgModule({
-  declarations: [SharedComponentComponent, NavBarComponent, LaymanTechContentComponent, PageNotFoundComponent, FirstBlogComponent],
+  declarations: [SharedComponentComponent, NavBarComponent, LaymanTechContentComponent, PageNotFoundComponent, FirstBlogComponent, AllTopicsCardComponent],
   imports: [
     CommonModule,
     RouterModule
