@@ -24,6 +24,12 @@
       ],
       "shared-component/*": [
         "dist/shared-component/*"
+      ],
+      "core": [
+        "dist/core"
+      ],
+      "core/*": [
+        "dist/core/*"
       ]
     }
   }
