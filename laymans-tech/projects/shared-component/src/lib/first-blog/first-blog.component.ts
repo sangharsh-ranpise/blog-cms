@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'lib-first-blog',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FirstBlogComponent implements OnInit {
 
+  @Input() id: any = ''
   constructor() { }
 
   ngOnInit() {

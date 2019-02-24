@@ -1,4 +1,11 @@
 # LaymansTech
+ng new app-name
+ng generate library library-name
+ng generate component component-name --project=library-name
+
+if you want to use the component somewhere elese than add that component in its modules export array
+
+npm install bootstrap
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
 

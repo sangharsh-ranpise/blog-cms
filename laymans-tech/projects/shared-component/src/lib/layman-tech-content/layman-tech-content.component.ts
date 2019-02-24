@@ -8,14 +8,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class LaymanTechContentComponent implements OnInit {
   topicName: string = '';
+  firstBlogId: string = ''
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log("OK")
     this.route.paramMap.subscribe(res => {
-      this.topicName = res.get('topicName');
       console.log(res);
+      this.topicName = res.get('topicName');
     })
+    if (this.topicName) {
+      this.firstBlogId = 'nodeJs'
+    }
   }
 
 }
