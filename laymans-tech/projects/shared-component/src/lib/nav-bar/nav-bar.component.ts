@@ -15,8 +15,12 @@ export class NavBarComponent implements OnInit {
     this.blogName = AppConstants.BLOG_NAME;
     this.topics = [
       'technology',
+      'design',
       'culture',
-      'Life'
+      'business',
+      'health',
+      'life',
+      'diy'
     ]
   }
 
