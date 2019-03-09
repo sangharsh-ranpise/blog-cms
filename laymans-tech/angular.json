@@ -200,6 +200,134 @@
           }
         }
       }
+    },
+    "users": {
+      "root": "projects/users/",
+      "sourceRoot": "projects/users/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/users",
+            "index": "projects/users/src/index.html",
+            "main": "projects/users/src/main.ts",
+            "polyfills": "projects/users/src/polyfills.ts",
+            "tsConfig": "projects/users/tsconfig.app.json",
+            "assets": [
+              "projects/users/src/favicon.ico",
+              "projects/users/src/assets"
+            ],
+            "styles": [
+              "projects/users/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/users/src/environments/environment.ts",
+                  "with": "projects/users/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "users:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "users:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "users:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/users/src/test.ts",
+            "polyfills": "projects/users/src/polyfills.ts",
+            "tsConfig": "projects/users/tsconfig.spec.json",
+            "karmaConfig": "projects/users/karma.conf.js",
+            "styles": [
+              "projects/users/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/users/src/favicon.ico",
+              "projects/users/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/users/tsconfig.app.json",
+              "projects/users/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "users-e2e": {
+      "root": "projects/users-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/users-e2e/protractor.conf.js",
+            "devServerTarget": "users:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "users:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/users-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "laymans-tech"
