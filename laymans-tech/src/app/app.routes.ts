@@ -9,6 +9,10 @@ const appRoutes: Routes = [
     path: '',
     children: [
       {
+        path: '',
+        component: ReadFullBlogComponent
+      },
+      {
         path: 'topic/:topicName/:topicId',
         component: ReadFullBlogComponent
       },

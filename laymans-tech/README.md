@@ -5,6 +5,8 @@ ng generate component component-name --project=library-name
 
 if you want to use the component somewhere elese than add that component in its modules export array
 
+To generate service inside a lib say core/service cmd is 
+ng service/serviceName --project=core
 npm install bootstrap
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
