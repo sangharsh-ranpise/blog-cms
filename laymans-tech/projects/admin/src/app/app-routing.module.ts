@@ -1,10 +1,26 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { AdminBodyComponent } from './admin-body/admin-body.component';
 
-const routes: Routes = [];
 
+const appRoutes: Routes = [
+  {
+    path: '',
+    children: [
+      {
+        path: '',
+        component: AdminBodyComponent
+      }
+    ]
+  }
+]
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(appRoutes, {
+      preloadingStrategy: PreloadAllModules
+    })
+  ],
   exports: [RouterModule]
+
 })
 export class AppRoutingModule { }
