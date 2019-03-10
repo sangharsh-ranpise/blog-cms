@@ -1,0 +1,82 @@
+Structure to create menu tabs
+
+{
+    _id:'',
+    id:'',
+    navBarName:'',
+    navBarOptions:[{
+id:'',
+optionName,
+    },
+    {
+id:'',
+optionName,
+    }
+    ],
+    isEnabled:''
+}
+
+
+Structure to save blogs
+{
+    _id:'',
+    id:'',
+    menuId:'',
+    mainHeader:'',
+    blogCreationData:'Jan 1 2014',
+    aboutWriter:'',
+    writerName:''
+    paragraphs:[
+        {
+            paraImg:'',
+            paraHeading:'',
+            paraBody:''
+        },
+        {
+            paraImg:'',
+            paraHeading:'',
+            paraBody:''
+        }
+    ],
+    tags:[
+      {}
+    ],
+    updatedAt:'',
+    isRatingGiven:'',
+    rate:'0-5',
+}
+
+users Structure
+{
+    _id:'',
+    id:'',
+    firtsName:'',
+    middleName:'',
+    lastName:'',
+    email:'',
+    phone:'',
+    passwordHashP:''
+}
+
+comments Structure
+{
+    _id:'',
+    id:'',
+    userId:'',
+    comments:'',
+    commentsOnBlogId:''
+    commentsLikeCount:'',
+    commentsDisLikeCount:'',
+    deleteComment:''
+}
+
+suggestion structure
+{
+
+}
+
+config structure
+
+{
+
+ }
