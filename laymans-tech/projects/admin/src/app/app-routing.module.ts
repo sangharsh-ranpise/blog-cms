@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { AdminBodyComponent } from './admin-body/admin-body.component';
+import { BlogListComponent } from './blog-list/blog-list.component';
 
 
 const appRoutes: Routes = [
@@ -8,8 +9,8 @@ const appRoutes: Routes = [
     path: '',
     children: [
       {
-        path: '',
-        component: AdminBodyComponent
+        path: 'list/blogs',
+        component: BlogListComponent
       }
     ]
   }

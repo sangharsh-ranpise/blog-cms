@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { AdminNavComponent } from './admin-nav/admin-nav.component';
 import { AdminBodyComponent } from './admin-body/admin-body.component';
 import { CommonModule } from '@angular/common';
+import { BlogListComponent } from './blog-list/blog-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminNavComponent,
-    AdminBodyComponent
+    AdminBodyComponent,
+    BlogListComponent
   ],
   imports: [
     CommonModule,
