@@ -35,3 +35,11 @@
 } */
 
 
+.navbar-nav{
+  padding:8px;
+  flex-direction: row;
+}
+
+.nav-item{
+  padding-right: 24px;
+}
