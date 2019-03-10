@@ -1,0 +1,11 @@
+<div>
+  <form [formGroup]="menuLinkFormGroup" (ngSubmit)="createMenuLink()">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="text" formControlName="linkName" class="form-control" id="blogLink" aria-describedby="menuLink"
+        placeholder="Enter Menu Name">
+      <small id="menuLink" class="form-text text-muted">It will create a new menu for your blog</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Menu Link</button>
+  </form>
+</div>

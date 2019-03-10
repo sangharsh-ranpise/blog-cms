@@ -8,6 +8,8 @@ import { AdminBodyComponent } from './admin-body/admin-body.component';
 import { CommonModule } from '@angular/common';
 import { BlogListComponent } from './blog-list/blog-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CreateMenuLinkComponent } from './create-menu-link/create-menu-link.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AdminNavComponent,
     AdminBodyComponent,
     BlogListComponent,
-    DashboardComponent
+    DashboardComponent,
+    CreateMenuLinkComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
