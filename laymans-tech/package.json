@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "users": "ng serve users --port 4200",
+    "admin": "ng serve admin --port 4201"
   },
   "private": true,
   "dependencies": {

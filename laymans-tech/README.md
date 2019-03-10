@@ -39,3 +39,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 To generate  a new sub application
 use following command
 ng generate application  appName --routing
+
+
+
+sangharsh_ranpise
+Sangharsh@0216
