@@ -12,7 +12,7 @@ export class LaymanTechContentComponent implements OnInit {
   firstBlogId: string = ''
   constructor(private route: ActivatedRoute,
     private blogService: BlogService,
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(res => {

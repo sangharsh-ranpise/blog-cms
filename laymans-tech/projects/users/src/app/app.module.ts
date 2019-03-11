@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { SharedComponentModule } from 'projects/shared-component/src/public_api';
 import { CommonModule } from '@angular/common';
 import { CoreModule } from 'projects/core/src/public_api';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LaymansTechHttpInterceptor } from 'projects/core/src/lib/auth/LaymansTechHttpInterceptor';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,13 @@ import { CoreModule } from 'projects/core/src/public_api';
     SharedComponentModule,
     CoreModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LaymansTechHttpInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
