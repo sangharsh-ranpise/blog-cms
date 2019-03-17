@@ -1,0 +1,17 @@
+.blog-menu-link-container{
+  display: flex;
+    /* justify-content: start; */
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.blog-menu-link{
+  /* width: 50%; */
+  background: red;
+  /* padding: 5% 13%; */
+     margin-right: 8px;
+     margin-bottom: 8px;
+    width: 30.333%;
+    padding: 8px;
+    box-shadow: 1px 1px 4px 2px #888888;
+}

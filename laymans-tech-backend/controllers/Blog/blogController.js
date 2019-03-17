@@ -1,13 +1,13 @@
 const blogService = require('./blogService');
 
 
-module.exports.blog = async (req, res) => {
+module.exports.getMenuLink = async (req, res) => {
     // console.log("CO<ING", req)
     try {
 
-        const blog1 = await blogService.getBlogs();
-        console.log(blog1)
-        res.json(blog1)
+        const menuLinkList = await blogService.getMenuLink();
+        // console.log(blog1)
+        res.json(menuLinkList)
 
     } catch (error) {
         throw error;
@@ -16,7 +16,11 @@ module.exports.blog = async (req, res) => {
 
 module.exports.createMenuLink = async (req, res) => {
     try {
-        const createMenuLink = await blogService.createMenuLink(dbName, menuLink);
+        const menuLink = {
+            navBarName: req.body.navBarName
+        }
+        const createMenuLink = await blogService.createMenuLink(menuLink);
+        res.json(createMenuLink)
     } catch (error) {
         throw error;
     }

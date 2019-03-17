@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 // import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -6,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class BlogService {
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
   }
   getSelectedBlogsFirstPage(selectedBlogType) {
     return {
@@ -15,5 +16,11 @@ export class BlogService {
     // return this.httpClient.get(
     //   'orphan-event/search-prospects?search=' + queryParameter
     // );
+  }
+
+  getMenuLinkList() {
+    return this.httpClient.get(
+      'http://localhost:8000/laymans-tech/blog/menu-list/'
+    );
   }
 }

@@ -10,6 +10,8 @@ import { BlogListComponent } from './blog-list/blog-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateMenuLinkComponent } from './create-menu-link/create-menu-link.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { CoreModule } from 'projects/core/src/public_api';
 
 @NgModule({
   declarations: [
@@ -21,10 +23,14 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     CreateMenuLinkComponent
   ],
   imports: [
+    HttpClientModule,
     CommonModule,
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule, FormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    CoreModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

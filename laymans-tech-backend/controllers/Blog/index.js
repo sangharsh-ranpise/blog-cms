@@ -5,10 +5,10 @@ const router = express.Router();
 
 const jwt = require('express-jwt');
 
-const { blog, createMenuLink } = require('./blogController');
+const { getMenuLink, createMenuLink } = require('./blogController');
 
 router.post('/blog/create/menu-link/', createMenuLink)
-router.get('/blog', blog);
+router.get('/blog/menu-list', getMenuLink);
 
 // router.get('/about', function (req, res) {
 //     res.send('About this wiki');

@@ -9,7 +9,7 @@ connectionsManager.prototype.getConnection = function (tenantId) {
         if (!this.connections[tenantId]) {
             mongodb
                 .connect(
-                    `${process.env.MONGO_CONNECTION_URL}${tenantId}`,{ useNewUrlParser: true }
+                    `${process.env.MONGO_CONNECTION_URL}${tenantId}`
                 )
                 .then(db => {
                     this.connections[tenantId] = db;

@@ -5,7 +5,7 @@ const envResult = dotenv.config();
 
 const express = require('express');
 const compression = require('compression');
-// const cors = require('cors');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 // const expressWinston = require('express-winston');
 const moment = require('moment');
@@ -14,6 +14,7 @@ const app = express();
 // const fs = require('fs');
 const http = require('http');
 const https = require('https');
+const config = require('./config/config');
 
 const blogRouter = require('./controllers/Blog/index')
 
@@ -36,11 +37,12 @@ app.use(
 );
 
 app.use(compression());
+app.use(cors(config.env_config.corsOptions));
 
 
 app.use((req, res, next) => {
     res.setHeader('content-type', 'application/json');
-    console.log("ABCs")
+    // console.log("ABCs")
     // req.tokenSecret = config.secret;
     // req.tenantName = req.headers.tenant;
     app.use(compression());
