@@ -35,10 +35,12 @@ export class CreateMenuLinkComponent implements OnInit {
     let menuLink = {
       navBarName: this.linkName
     }
-    this.adminService.createMenuLink(menuLink).subscribe(res => {
-      console.log(res)
-      this.router.navigate(['list', 'blogs'])
-    })
+    if (this.menuLinkFormGroup.valid) {
+      this.adminService.createMenuLink(menuLink).subscribe(res => {
+        console.log(res)
+        this.router.navigate(['list', 'blogs'])
+      })
+    }
   }
 
   get linkName() {

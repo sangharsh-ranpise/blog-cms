@@ -3,3 +3,20 @@
   margin-top: 80px;
   /* margin-right: 300px; */
 }
+
+.admin-left-sidebar {
+	display: block;
+	background-color: white;
+	width: 200px;
+	height: 100%;
+	position: fixed;
+	box-sizing: border-box;
+	top: 0;
+	left: 0;
+}
+
+.admin-right-content {
+	display: block;
+	margin-left: 250px;
+	width: calc(100% - 250px);
+}

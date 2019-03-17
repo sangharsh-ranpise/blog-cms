@@ -24,6 +24,9 @@ const appRoutes: Routes = [
       }, {
         path: 'create-menu-link',
         component: CreateMenuLinkComponent
+      }, {
+        path: '**',
+        component: BlogListComponent
       }
     ]
   }

@@ -1,11 +1,15 @@
 <div>
-  <app-admin-nav></app-admin-nav>
-  <app-admin-body></app-admin-body>
-  <div class="router-outlet">
+  <div>
+    <app-admin-nav></app-admin-nav>
+  </div>
+  <div class="admin-left-sidebar">
+    <app-admin-body></app-admin-body>
+
+  </div>
+  <div class="router-outlet admin-right-content">
     <router-outlet></router-outlet>
   </div>
-</div>
-<!-- <footer class="blog-footer">
+  <!-- <footer class="blog-footer">
   <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a
       href="https://twitter.com/mdo">@mdo</a>.</p>
   <p>

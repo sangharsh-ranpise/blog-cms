@@ -13,8 +13,11 @@ export class BlogListComponent implements OnInit {
   ngOnInit() {
     this.blogService.getMenuLinkList().subscribe(res => {
       this.blogMenus = res;
-      console.log(res)
+      // console.log(res)
     })
   }
 
+  getBlogs(blogMenu) {
+    console.log(blogMenu)
+  }
 }

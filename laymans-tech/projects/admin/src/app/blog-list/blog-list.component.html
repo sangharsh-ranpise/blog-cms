@@ -1,5 +1,7 @@
 <div class="blog-menu-link-container">
   <div class="blog-menu-link" *ngFor="let blogMenu of blogMenus">
-    {{blogMenu.navBarName}}
+    <a [routerLink]="['/','list', 'blogs',blogMenu.id]" class="blog-list">
+      {{blogMenu.navBarName}}
+    </a>
   </div>
 </div>
