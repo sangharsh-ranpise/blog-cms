@@ -1,0 +1,36 @@
+.btn-spacing-from-parent{
+  margin:10px
+}
+
+.btn-spacing{
+  margin-right: 8px;
+}
+
+.bottom-padding{
+  margin-bottom: 10px;
+}
+
+
+.blogs-container{
+  display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    margin:16px 0px;
+}
+
+.blog{
+  background: gray;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  width: 30.333%;
+  padding: 8px;
+  box-shadow: 1px 1px 4px 2px #888888;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
+.blog-writer{
+  font-size:12px;
+}
+

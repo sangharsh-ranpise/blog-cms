@@ -12,6 +12,7 @@ import { CreateMenuLinkComponent } from './create-menu-link/create-menu-link.com
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from 'projects/core/src/public_api';
+import { AllBlogComponent } from './all-blog/all-blog.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CoreModule } from 'projects/core/src/public_api';
     AdminBodyComponent,
     BlogListComponent,
     DashboardComponent,
-    CreateMenuLinkComponent
+    CreateMenuLinkComponent,
+    AllBlogComponent
   ],
   imports: [
     HttpClientModule,

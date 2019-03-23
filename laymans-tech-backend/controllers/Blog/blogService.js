@@ -11,7 +11,7 @@ module.exports.getMenuLink = async () => {
             navBarOptions: 1
         }
         const menuLinkList = await db
-            .collection('blogs')
+            .collection('blog-topics')
             .find({}, project).toArray();
 
         return menuLinkList;
@@ -38,7 +38,82 @@ module.exports.createMenuLink = async (menuLink, dbName = null) => {
         // ]
     }
     const updateOrAddMenuLink = await db
-        .collection('blogs')
+        .collection('blog-topics')
         .update(findMenuLinkQuery, updateMenuLink, { upsert: true });
     return updateOrAddMenuLink;
+}
+
+module.exports.createBlog = async (newBlogContent) => {
+    try {
+        const db = await connectionsManager.getConnection('laymans-tech');
+        const numberOfReaders = {
+            daily: 0,
+            weekly: 0,
+            monthly: 0,
+            yearly: 0
+        }
+        const createNewBlog = {
+            id: uuid(),
+            mainHeader: newBlogContent.mainHeader,
+            writerDetails: {
+                writerName: newBlogContent.writerName,
+                aboutWriter: newBlogContent.aboutWriter,
+            },
+            paragraphs: newBlogContent.paragraphs,
+            blogType: newBlogContent.blogType,
+            blogCreationDate: newBlogContent.blogCreationDate,
+            updatedAt: '',
+            isRatingGiven: false,
+            rate: 0,
+            numberOfReaders: numberOfReaders,
+            softDeleteBlog: false,
+            hardDeleteBlog: false
+        }
+        const addNewBlog = await db
+            .collection('blogs')
+            .insert(createNewBlog);
+        return addNewBlog;
+    } catch (error) {
+        throw error;
+    }
+}
+
+module.exports.getAllBlogs = async (blogTypeId) => {
+    try {
+        const db = await connectionsManager.getConnection('laymans-tech');
+        const findQuery = {
+            'blogType.id': blogTypeId,
+            'softDeleteBlog': false,
+            'hardDeleteBlog': false,
+        }
+        const projectQuery = {
+            // id: 1,
+            // mainHeader: 1,
+            // writerDetails: 1,
+            // blogType: 1
+            _id: 0
+        }
+        const blogsList = await db
+            .collection('blogs')
+            .find(findQuery, projectQuery).toArray();
+        return blogsList;
+    } catch (error) {
+        throw error;
+    }
+}
+
+module.exports.getBlogById = async (blogId) => {
+    try {
+        const db = await connectionsManager.getConnection('laymans-tech');
+        const findQuery = {
+            'id': blogId,
+            'softDeleteBlog': false,
+            'hardDeleteBlog': false,
+        }
+
+        const selectedBlog = await db
+            .collection('blogs')
+            .find(findQuery).next();
+        return selectedBlog;
+    } catch (error) { }
 }

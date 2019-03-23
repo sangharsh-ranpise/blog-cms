@@ -25,3 +25,31 @@ module.exports.createMenuLink = async (req, res) => {
         throw error;
     }
 }
+
+module.exports.createBlog = async (req, res) => {
+    try {
+        const createMenuLink = await blogService.createBlog(req.body.newBlogContent);
+        res.json(createMenuLink)
+    } catch (error) {
+        throw error;
+    }
+}
+
+module.exports.getAllBlogs = async (req, res) => {
+    try {
+        console.log(req.params.blogTypeId);
+        const blogsList = await blogService.getAllBlogs(req.params.blogTypeId);
+        res.json(blogsList)
+    } catch (error) {
+        throw error;
+    }
+}
+
+module.exports.getBlogById = async (req, res) => {
+    try {
+        const selectedBlog = await blogService.getBlogById(req.params.blogId);
+        res.json(selectedBlog)
+    } catch (error) {
+        throw error;
+    }
+}

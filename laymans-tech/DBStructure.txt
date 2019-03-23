@@ -15,6 +15,7 @@ optionName,
     ],
     isEnabled:''
 }
+//Done
 
 
 Structure to save blogs
@@ -23,8 +24,14 @@ Structure to save blogs
     id:'',
     menuId:'',
     mainHeader:'',
-    blogCreationData:'Jan 1 2014',
-    aboutWriter:'',
+    blogCreationDate:'Jan 1 2014',
+    writer:{
+        writerDetails
+    },
+    blogType:{
+      name:'',
+      id:''
+    },
     writerName:''
     paragraphs:[
         {
@@ -44,6 +51,13 @@ Structure to save blogs
     updatedAt:'',
     isRatingGiven:'',
     rate:'0-5',
+    numberOfReaders:{
+        daily:11
+        weekly:11,
+        monthly:11,
+        yearly:11
+    },
+    blogCompleted:''
 }
 
 users Structure

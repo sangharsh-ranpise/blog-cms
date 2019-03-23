@@ -43,6 +43,9 @@ export class CreateMenuLinkComponent implements OnInit {
     }
   }
 
+  goBackToBlogsMenuLink() {
+    this.router.navigate(['list', 'blogs'])
+  }
   get linkName() {
     return this.menuLinkFormGroup.get('linkName').value;
   }

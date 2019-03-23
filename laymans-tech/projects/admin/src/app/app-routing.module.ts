@@ -4,6 +4,7 @@ import { AdminBodyComponent } from './admin-body/admin-body.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateMenuLinkComponent } from './create-menu-link/create-menu-link.component';
+import { AllBlogComponent } from './all-blog/all-blog.component';
 
 
 const appRoutes: Routes = [
@@ -17,6 +18,10 @@ const appRoutes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent
+      },
+      {
+        path: 'list/blogs/:menuLinkId',
+        component: AllBlogComponent
       },
       {
         path: 'list/blogs',

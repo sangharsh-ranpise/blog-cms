@@ -1,0 +1,59 @@
+<div class="btn btn-primary" (click)="createBlog()">Create New Blog</div>
+
+<!-- Create Blog form -->
+<div *ngIf="isCreateBlogForm">
+  <form [formGroup]="blogFormGroup" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <div>
+        <label for="writerName">Writer Name</label>
+        <input type="text" id="writerNameId" formControlName="writerName" class="form-control"
+          aria-describedby="writerName" placeholder="Enter Writers Name" required>
+        <small id="writerNameId" class="form-text text-muted">Writers Name</small>
+      </div>
+      <div>
+        <label for="aboutWriter">About Writer</label>
+        <input type="text" id="aboutId" formControlName="aboutWriter" class="form-control"
+          aria-describedby="aboutWriter" placeholder="Enter Writers Name">
+        <small id="aboutId" class="form-text text-muted">About Writer</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="mainHeader">Main Header</label>
+      <input type="text" id="meanuHeaderId" formControlName="mainHeader" class="form-control"
+        aria-describedby="mainHeader" placeholder="Enter Blog Menu Header Name" required>
+      <small id="meanuHeaderId" class="form-text text-muted">Blogs Main Header</small>
+    </div>
+    <div formArrayName="paragraphs"
+      *ngFor="let paragraph of blogFormGroup.get('paragraphs')['controls']; let i = index;">
+      <div [formGroupName]="i">
+        <div class="bottom-padding">
+          <input type="file" formControlName="paraImg" placeholder="Paragraph Image" />
+        </div>
+        <div class="bottom-padding">
+          <input type="text" class="form-control" formControlName="paraHeading" placeholder="Paragraph Heading" />
+        </div>
+        <div class="bottom-padding">
+          <textarea class="form-control" formControlName="paraBody" placeholder="Paragraph Body" rows="3"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="btn-spacing-from-parent">
+      <button class="btn btn-primary btn-spacing" (click)="addNewParagraph()">Create New ParaGraph</button>
+
+      <button type="submit" class="btn btn-primary btn-spacing">Create Blog</button>
+      <button type="button" class="btn btn-primary" (click)="goBackToBlogsMenuLink()">Back</button>
+    </div>
+  </form>
+</div>
+
+<div class="blogs-container">
+  <div class="blog" *ngFor="let blog of blogList;let i=index" (click)="getBlog(blog,i)">
+    <!-- <pre>{{blog | json }}</pre> -->
+    <div class="main-header">
+      {{blog.mainHeader}}
+    </div>
+    <div class="blog-writer">
+      Writer: {{blog.mainHeader}}
+    </div>
+  </div>
+</div>

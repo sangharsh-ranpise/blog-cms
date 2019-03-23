@@ -12,13 +12,13 @@ const appRoutes: Routes = [
         path: '',
         component: ReadFullBlogComponent
       },
-      {
+       {
         path: 'topic/:topicName/:topicId',
-        component: ReadFullBlogComponent
+        component: LaymanTechContentComponent
       },
       {
-        path: 'topic/:topicName',
-        component: LaymanTechContentComponent
+        path: 'topic/:topicName/:subTopicName/:subTopicId',
+        component: ReadFullBlogComponent
       },
       {
         path: '**',

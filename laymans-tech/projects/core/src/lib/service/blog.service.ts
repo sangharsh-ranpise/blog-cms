@@ -23,4 +23,15 @@ export class BlogService {
       'http://localhost:8000/laymans-tech/blog/menu-list/'
     );
   }
+
+  getAllBlogs(blogTypeId) {
+    return this.httpClient.get(
+      `http://localhost:8000/laymans-tech/blog/list/${blogTypeId}`
+    );
+  }
+  getBlogById(specificBlogIdUnderBlogType) {
+    return this.httpClient.get(
+      `http://localhost:8000/laymans-tech/blog/${specificBlogIdUnderBlogType}`
+    );
+  }
 }

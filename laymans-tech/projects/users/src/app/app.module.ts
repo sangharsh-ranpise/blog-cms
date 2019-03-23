@@ -9,12 +9,14 @@ import { CommonModule } from '@angular/common';
 import { CoreModule } from 'projects/core/src/public_api';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LaymansTechHttpInterceptor } from 'projects/core/src/lib/auth/LaymansTechHttpInterceptor';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    HttpClientModule,
     CommonModule,
     BrowserModule,
     AppRoutingModule,
