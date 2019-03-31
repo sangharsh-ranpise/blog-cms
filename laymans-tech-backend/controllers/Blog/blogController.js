@@ -26,15 +26,6 @@ module.exports.createMenuLink = async (req, res) => {
     }
 }
 
-module.exports.createBlog = async (req, res) => {
-    try {
-        const createMenuLink = await blogService.createBlog(req.body.newBlogContent);
-        res.json(createMenuLink)
-    } catch (error) {
-        throw error;
-    }
-}
-
 module.exports.getAllBlogs = async (req, res) => {
     try {
         console.log(req.params.blogTypeId);
@@ -49,6 +40,35 @@ module.exports.getBlogById = async (req, res) => {
     try {
         const selectedBlog = await blogService.getBlogById(req.params.blogId);
         res.json(selectedBlog)
+    } catch (error) {
+        throw error;
+    }
+}
+
+module.exports.createBlog = async (req, res) => {
+    try {
+        const createBlog = await blogService.createBlog(req.body.newBlogContent);
+        res.json(createBlog)
+    } catch (error) {
+        throw error;
+    }
+}
+
+module.exports.updateBlog = async (req, res) => {
+    try {
+        console.log('req.params', req.body.updateBlogContent)
+        const updateBlog = await blogService.updateBlog(req.body.updateBlogContent);
+        res.json(updateBlog)
+    } catch (error) {
+        throw error;
+    }
+}
+
+module.exports.getLatestBlogByTopicName = async (req, res) => {
+    try {
+        console.log(req.params.topicId)
+        const blogByTopicName = await blogService.getLatestBlogByTopicName(req.params.topicId)
+        res.json(blogByTopicName)
     } catch (error) {
         throw error;
     }

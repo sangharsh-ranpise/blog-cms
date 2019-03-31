@@ -13,6 +13,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from 'projects/core/src/public_api';
 import { AllBlogComponent } from './all-blog/all-blog.component';
+import { CreateBlogComponent } from './create-blog/create-blog.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AllBlogComponent } from './all-blog/all-blog.component';
     BlogListComponent,
     DashboardComponent,
     CreateMenuLinkComponent,
-    AllBlogComponent
+    AllBlogComponent,
+    CreateBlogComponent
   ],
   imports: [
     HttpClientModule,

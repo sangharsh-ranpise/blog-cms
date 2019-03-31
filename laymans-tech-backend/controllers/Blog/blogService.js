@@ -117,3 +117,55 @@ module.exports.getBlogById = async (blogId) => {
         return selectedBlog;
     } catch (error) { }
 }
+
+module.exports.updateBlog = async (newBlogContent) => {
+    try {
+        const db = await connectionsManager.getConnection('laymans-tech');
+        console.log(newBlogContent)
+        const query = {
+            id: newBlogContent.id
+        }
+        const updateBlog = {
+            $set: {
+                mainHeader: newBlogContent.mainHeader,
+                writerDetails: {
+                    writerName: newBlogContent.writerName,
+                    aboutWriter: newBlogContent.aboutWriter,
+                },
+                paragraphs: newBlogContent.paragraphs,
+                blogType: newBlogContent.blogType,
+                updatedAt: newBlogContent.updatedAt,
+                softDeleteBlog: false,
+                hardDeleteBlog: false
+            }
+        }
+        const addNewBlog = await db
+            .collection('blogs')
+            .update(query, updateBlog);
+        return addNewBlog;
+    } catch (error) {
+        throw error;
+    }
+}
+
+
+module.exports.getLatestBlogByTopicName = async (topicId) => {
+    try {
+        const db = await connectionsManager.getConnection('laymans-tech');
+
+        const pipeLine = [
+            {
+                $match: {
+                    'blogType.id': topicId
+                }
+            }, {
+                $sort: { updatedAt: -1 }
+            }
+        ]
+        const latestBlog = await db.collection('blogs')
+            .aggregate(pipeLine).next();
+        return latestBlog;
+    } catch (error) {
+        throw error;
+    }
+}

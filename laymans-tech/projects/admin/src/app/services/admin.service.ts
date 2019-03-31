@@ -21,4 +21,13 @@ export class AdminService {
       'http://localhost:8000/laymans-tech/blog/create/blog/', blogContent
     );
   }
+
+  updateBlog(updateBlogContent: any) {
+    const blogContent = {
+      updateBlogContent
+    }
+    return this.httpClient.post(
+      'http://localhost:8000/laymans-tech/blog/update/blog/', blogContent
+    );
+  }
 }

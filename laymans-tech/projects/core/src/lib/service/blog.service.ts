@@ -34,4 +34,10 @@ export class BlogService {
       `http://localhost:8000/laymans-tech/blog/${specificBlogIdUnderBlogType}`
     );
   }
+
+  getLatestBlogByTopicName(topicId) {
+    return this.httpClient.get(
+      `http://localhost:8000/laymans-tech/blog/topicId/${topicId}`
+    );
+  }
 }

@@ -14,10 +14,12 @@ export class AllBlogComponent implements OnInit {
   paragraphs: FormArray;
   isCreateBlogForm: Boolean = false;
   blogMenus: any;
-  selectedBlog = {};
+  selectedBlogType = {};
   createBlogContent: any;
   blogList: any;
   specificBlogIdUnderBlogType: any
+  selectedBlog: any;
+  isUpdateBlog: boolean = false;
   constructor(
     private blogService: BlogService,
     private adminService: AdminService,
@@ -28,75 +30,72 @@ export class AllBlogComponent implements OnInit {
   ngOnInit() {
     this.blogService.getMenuLinkList().subscribe(res => {
       this.blogMenus = res;
-      // console.log(res)
     })
     this.route.params.subscribe(res => {
-      this.selectedBlog['id'] = res.menuLinkId;
-      this.getAllBlogs(this.selectedBlog['id'])
-      // console.log(res)
+      this.selectedBlogType['id'] = res.menuLinkId;
+      this.getAllBlogs(this.selectedBlogType['id'])
     })
-    this.createBlogFormGroup();
 
   }
 
-
-  createBlogFormGroup() {
-    this.blogFormGroup = this.fb.group({
-      mainHeader: ['', Validators.required],
-      writerName: ['', Validators.required],
-      aboutWriter: [''],
-      paragraphs: this.fb.array([this.createNewParagraph()])
-    })
-  }
   createBlog() {
     this.isCreateBlogForm = true;
-
+    this.isUpdateBlog = false;
+    console.log(this.isUpdateBlog)
   }
 
-  createNewParagraph() {
-    return this.fb.group({
-      paraImg: '',
-      paraHeading: '',
-      paraBody: ''
-    });
-  }
+  // createNewParagraph() {
+  //   return this.fb.group({
+  //     paraImg: '',
+  //     paraHeading: '',
+  //     paraBody: ''
+  //   });
+  // }
 
-  addNewParagraph() {
-    this.paragraphs = this.blogFormGroup.get('paragraphs') as FormArray;
-    this.paragraphs.push(this.createNewParagraph());
-  }
+  // addNewParagraph() {
+  //   this.paragraphs = this.blogFormGroup.get('paragraphs') as FormArray;
+  //   this.paragraphs.push(this.createNewParagraph());
+  // }
 
   getAllBlogs(blogTypeId) {
     this.blogService.getAllBlogs(blogTypeId).subscribe(blogList => {
       this.blogList = blogList;
     })
   }
-  onSubmit() {
-    this.selectedBlog = this.blogMenus.find(blog => blog.id === this.selectedBlog['id']);
-    this.selectedBlog = {
-      id: this.selectedBlog['id'],
-      navBarName: this.selectedBlog['navBarName']
+  // onSubmit() {
+  //   this.selectedBlogType = this.blogMenus.find(blog => blog.id === this.selectedBlogType['id']);
+  //   this.selectedBlogType = {
+  //     id: this.selectedBlogType['id'],
+  //     navBarName: this.selectedBlogType['navBarName']
 
-    }
-    if (this.blogFormGroup.valid) {
-      this.createBlogContent = this.blogFormGroup.value;
-      this.createBlogContent['blogType'] = this.selectedBlog;
-      this.createBlogContent['blogCreationDate'] = new Date().getTime();
-      this.adminService.createBlog(this.createBlogContent).subscribe(newBlog => {
-        this.blogFormGroup.reset();
-      })
+  //   }
+  //   if (this.blogFormGroup.valid) {
+  //     this.createBlogContent = this.blogFormGroup.value;
+  //     this.createBlogContent['blogType'] = this.selectedBlogType;
+  //     this.createBlogContent['blogCreationDate'] = new Date().getTime();
+  //     this.adminService.createBlog(this.createBlogContent).subscribe(newBlog => {
+  //       this.blogFormGroup.reset();
+  //     })
 
-    }
-  }
+  //   }
+  // }
 
   goBackToBlogsMenuLink() {
     this.isCreateBlogForm = false;
   }
   getBlog(blog, index) {
+    this.selectedBlog = blog;
+    this.isCreateBlogForm = true;
+    this.isUpdateBlog = true;
     console.log(blog, index)
     // this.blogService.getBlogById(blog.id).subscribe(specificBlogIdUnderBlogType => {
     //   this.specificBlogIdUnderBlogType = specificBlogIdUnderBlogType;
     //   console.log(specificBlogIdUnderBlogType)
     // })
+  }
+
+  isBlogCreated(event) {
+    this.isCreateBlogForm = false;
+    this.getAllBlogs(this.selectedBlogType['id'])
   }
 }

@@ -10,13 +10,13 @@ import { BlogService } from 'projects/core/src/lib/service/blog.service';
 export class NavBarComponent implements OnInit {
   topics: any = [];;
   blogName: string = '';
-  constructor(private blogService : BlogService) { }
+  constructor(private blogService: BlogService) { }
 
   ngOnInit() {
     this.blogName = AppConstants.BLOG_NAME;
-    this.blogService.getMenuLinkList().subscribe(menuLinks=>{
-    this.topics=menuLinks
-      
+    this.blogService.getMenuLinkList().subscribe(menuLinks => {
+      this.topics = menuLinks
+
     })
     // this.topics = [
     //   'technology',
@@ -27,6 +27,10 @@ export class NavBarComponent implements OnInit {
     //   'life',
     //   'diy'
     // ]
+  }
+
+  getLatestBlogByMenuLink(topicId) {
+    console.log(topicId)
   }
 
 }
