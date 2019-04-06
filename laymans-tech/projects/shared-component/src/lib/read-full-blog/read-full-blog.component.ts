@@ -13,7 +13,7 @@ export class ReadFullBlogComponent implements OnInit {
   urlParams: any;
   latestBlog: any;
   blogUpdatedAt: any;
-
+  blogId: any = 'latest'
   constructor(private route: ActivatedRoute,
     private blogService: BlogService) {
   }
@@ -21,14 +21,17 @@ export class ReadFullBlogComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(res => {
       this.urlParams = res['params']
+      if (this.urlParams && this.urlParams.blogId) {
+        this.blogId = this.urlParams.blogId;
+      }
+      this.getLatestBlogByTopicName(this.urlParams.topicId, this.blogId)
     })
 
-    this.getLatestBlogByTopicName(this.urlParams.topicId)
   }
 
-  getLatestBlogByTopicName(topicId) {
-    this.blogService.getLatestBlogByTopicName(topicId).subscribe(latestBlog => {
-      console.log(latestBlog)
+  getLatestBlogByTopicName(topicId, blogId) {
+    this.blogService.getLatestBlogByTopicName(topicId, blogId).subscribe(latestBlog => {
+      // console.log(latestBlog)
       this.latestBlog = latestBlog;
       this.blogUpdatedAt = {
         date: new Date(this.latestBlog.updatedAt).getDate(),

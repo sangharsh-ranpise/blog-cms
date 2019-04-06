@@ -14,7 +14,7 @@ router.post('/blog/update/blog/', updateBlog)
 router.get('/blog/menu-list', getMenuLink);
 router.get('/blog/list/:blogTypeId', getAllBlogs);
 router.get('/blog/:blogId', getBlogById);
-router.get('/blog/topicId/:topicId', getLatestBlogByTopicName);
+router.get('/blog/topicId/:topicId/blogId/:blogId', getLatestBlogByTopicName);
 
 
 // router.get('/about', function (req, res) {

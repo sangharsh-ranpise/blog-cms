@@ -17,7 +17,7 @@ const appRoutes: Routes = [
         component: LaymanTechContentComponent
       },
       {
-        path: 'topic/:topicName/:topicId/:blogId',
+        path: 'topic/:topicName/:topicId/blogId/:blogId',
         component: ReadFullBlogComponent
       },
       {

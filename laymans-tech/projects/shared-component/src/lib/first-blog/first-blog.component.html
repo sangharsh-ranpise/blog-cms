@@ -5,7 +5,7 @@
     <hr class="my-4">
     <p>{{latestBlog?.paragraphs[1]?.paraBody}}</p>
     <p class='lead mb-0' *ngIf="latestBlog && latestBlog.id">
-      <a class="text-white font-weight-bold" [routerLink]="[latestBlog.id]">Continue reading</a>
+      <a class="text-white font-weight-bold" [routerLink]="['blogId',latestBlog.id]">Continue reading</a>
     </p>
   </div>
 </div>

@@ -13,6 +13,7 @@ export class FirstBlogComponent implements OnInit, OnDestroy {
 
   @Input() id: any = ''
   @Input() latestBlog: any;
+  blogId: any = 'latest'
   subscription: Subscription;
 
   constructor(
@@ -23,7 +24,7 @@ export class FirstBlogComponent implements OnInit, OnDestroy {
   ) {
     this.subscription = this.commonService.getMenuLinkId().subscribe(res => {
       console.log("Array yar", res)
-      this.getLatestBlogByTopicName(res.menuLinkId)
+      this.getLatestBlogByTopicName(res.menuLinkId, this.blogId)
     })
 
   }
@@ -36,10 +37,9 @@ export class FirstBlogComponent implements OnInit, OnDestroy {
     });
   }
 
-  getLatestBlogByTopicName(topicId) {
-    this.blogService.getLatestBlogByTopicName(topicId).subscribe(latestBlog => {
+  getLatestBlogByTopicName(topicId, blogId) {
+    this.blogService.getLatestBlogByTopicName(topicId, blogId).subscribe(latestBlog => {
       this.latestBlog = latestBlog;
-      console.log(this.latestBlog)
       // this.blogUpdatedAt = {
       //   date: new Date(this.latestBlog.updatedAt).getDate(),
       //   month: new Date(this.latestBlog.updatedAt).getMonth() + 1,

@@ -8,10 +8,10 @@
       <div class="blog-post">
         <h2 class="blog-post-title">{{latestBlog?.mainHeader}}</h2>
         <p class="blog-post-meta">{{blogUpdatedAt?.date}} ,{{blogUpdatedAt?.month}} {{blogUpdatedAt?.year}} by <a
-            href="#">Mark</a></p>
+            href="#">{{latestBlog?.writerDetails?.writerName}}</a></p>
         <div *ngFor="let paragraph of latestBlog?.paragraphs">
           <div *ngIf="paragraph?.paraHeading"><b>{{paragraph?.paraHeading}}</b></div>
-          <p>{{paragraph.paraBody}}</p>
+          <p>{{paragraph?.paraBody}}</p>
         </div>
         <!-- <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic
           typography, images, and code are all supported.</p>

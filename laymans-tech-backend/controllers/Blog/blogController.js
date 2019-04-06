@@ -66,8 +66,7 @@ module.exports.updateBlog = async (req, res) => {
 
 module.exports.getLatestBlogByTopicName = async (req, res) => {
     try {
-        console.log(req.params.topicId)
-        const blogByTopicName = await blogService.getLatestBlogByTopicName(req.params.topicId)
+        const blogByTopicName = await blogService.getLatestBlogByTopicName(req.params.topicId, req.params.blogId)
         res.json(blogByTopicName)
     } catch (error) {
         throw error;

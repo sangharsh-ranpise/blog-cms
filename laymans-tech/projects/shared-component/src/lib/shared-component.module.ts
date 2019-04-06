@@ -9,6 +9,7 @@ import { FirstBlogComponent } from './first-blog/first-blog.component';
 import { AllTopicsCardComponent } from './all-topics-card/all-topics-card.component';
 import { HomePageBlogComponent } from './home-page-blog/home-page-blog.component';
 import { ReadFullBlogComponent } from './read-full-blog/read-full-blog.component';
+import { BlogCardComponent } from './blog-card/blog-card.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ReadFullBlogComponent } from './read-full-blog/read-full-blog.component
     FirstBlogComponent,
     AllTopicsCardComponent,
     HomePageBlogComponent,
-    ReadFullBlogComponent
+    ReadFullBlogComponent,
+    BlogCardComponent
   ],
   imports: [
     CommonModule,

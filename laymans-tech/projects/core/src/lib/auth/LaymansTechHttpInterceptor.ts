@@ -19,7 +19,7 @@ export class LaymansTechHttpInterceptor implements HttpInterceptor {
   constructor(private loadingService: LoaderService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler) {
-    console.log("ABCCCCCCCCC")
+    // console.log("ABCCCCCCCCC")
     this.totalRequests++;
     this.loadingService.show();
     return next.handle(request).pipe(

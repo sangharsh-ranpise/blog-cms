@@ -9,24 +9,26 @@ import { BlogService } from 'projects/core/src/lib/service/blog.service';
 })
 export class LaymanTechContentComponent implements OnInit, OnChanges {
   topicName: string = '';
-  firstBlogId: string = ''
+  blogId: string = 'latest'
   topicId: string = '';
   latestBlog: any;
+
   constructor(private route: ActivatedRoute,
     private blogService: BlogService,
   ) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(res => {
+      console.log(res)
       this.topicName = res.get('topicName');
       this.topicId = res.get('topicId');
     });
-    this.blogService.getLatestBlogByTopicName(this.topicId).subscribe(latestBlog => {
+    this.blogService.getLatestBlogByTopicName(this.topicId, this.blogId).subscribe(latestBlog => {
       this.latestBlog = latestBlog;
     })
-    if (this.topicName) {
-      this.firstBlogId = 'nodeJs'
-    }
+    // if (this.topicName) {
+    //   this.firstBlogId = 'nodeJs'
+    // }
   }
 
   ngOnChanges() {

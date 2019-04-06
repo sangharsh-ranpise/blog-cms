@@ -81,21 +81,33 @@ module.exports.createBlog = async (newBlogContent) => {
 module.exports.getAllBlogs = async (blogTypeId) => {
     try {
         const db = await connectionsManager.getConnection('laymans-tech');
-        const findQuery = {
-            'blogType.id': blogTypeId,
-            'softDeleteBlog': false,
-            'hardDeleteBlog': false,
+        const matchQuery = {
+            $match: {
+                'blogType.id': blogTypeId,
+                'softDeleteBlog': false,
+                'hardDeleteBlog': false,
+            }
         }
         const projectQuery = {
-            // id: 1,
-            // mainHeader: 1,
-            // writerDetails: 1,
-            // blogType: 1
-            _id: 0
+            $project: {
+                // id: 1,
+                // mainHeader: 1,
+                // writerDetails: 1,
+                // blogType: 1
+                _id: 0
+            }
         }
+        const sortQuery = {
+            $sort: { updatedAt: -1 }
+        }
+        const pipeline = [
+            matchQuery,
+            projectQuery,
+            sortQuery
+        ]
         const blogsList = await db
             .collection('blogs')
-            .find(findQuery, projectQuery).toArray();
+            .aggregate(pipeline).toArray();
         return blogsList;
     } catch (error) {
         throw error;
@@ -149,11 +161,10 @@ module.exports.updateBlog = async (newBlogContent) => {
 }
 
 
-module.exports.getLatestBlogByTopicName = async (topicId) => {
+module.exports.getLatestBlogByTopicName = async (topicId, blogId = "latest") => {
     try {
         const db = await connectionsManager.getConnection('laymans-tech');
-
-        const pipeLine = [
+        let pipeLine = [
             {
                 $match: {
                     'blogType.id': topicId
@@ -161,7 +172,17 @@ module.exports.getLatestBlogByTopicName = async (topicId) => {
             }, {
                 $sort: { updatedAt: -1 }
             }
-        ]
+        ];
+        console.log("OOPS", blogId)
+        if (blogId !== 'latest') {
+            const matchQuery = {
+                $match: {
+                    id: blogId
+                }
+            }
+            pipeLine.push(matchQuery);
+            // console.log(JSON.stringify(pipeLine, undefined, 2))
+        }
         const latestBlog = await db.collection('blogs')
             .aggregate(pipeLine).next();
         return latestBlog;

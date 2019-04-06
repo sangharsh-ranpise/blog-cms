@@ -13,10 +13,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("ABBBBBBBBBBBBBB")
+    // console.log("ABBBBBBBBBBBBBB")
     this.loaderService.loaderState.subscribe((status) => {
       this.HTTPActivity = status;
-      console.log(status)
     });
   }
 }

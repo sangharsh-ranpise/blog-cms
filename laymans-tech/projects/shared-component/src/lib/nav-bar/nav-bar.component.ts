@@ -32,7 +32,6 @@ export class NavBarComponent implements OnInit {
   }
 
   setLatestBlogByMenuLink(topicId) {
-    console.log(topicId)
     this.commonService.setMenuLink(topicId)
   }
 
