@@ -62,7 +62,7 @@ module.exports.createBlog = async (newBlogContent) => {
             paragraphs: newBlogContent.paragraphs,
             blogType: newBlogContent.blogType,
             blogCreationDate: newBlogContent.blogCreationDate,
-            updatedAt: '',
+            updatedAt: newBlogContent.blogCreationDate,
             isRatingGiven: false,
             rate: 0,
             numberOfReaders: numberOfReaders,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppConstants } from 'projects/core/src/lib/app.constant';
 import { BlogService } from 'projects/core/src/lib/service/blog.service';
+import { CommonService } from 'projects/core/src/lib/service/common.service';
 
 @Component({
   selector: 'lib-nav-bar',
@@ -10,7 +11,8 @@ import { BlogService } from 'projects/core/src/lib/service/blog.service';
 export class NavBarComponent implements OnInit {
   topics: any = [];;
   blogName: string = '';
-  constructor(private blogService: BlogService) { }
+  constructor(private blogService: BlogService,
+    private commonService: CommonService) { }
 
   ngOnInit() {
     this.blogName = AppConstants.BLOG_NAME;
@@ -29,8 +31,9 @@ export class NavBarComponent implements OnInit {
     // ]
   }
 
-  getLatestBlogByMenuLink(topicId) {
+  setLatestBlogByMenuLink(topicId) {
     console.log(topicId)
+    this.commonService.setMenuLink(topicId)
   }
 
 }
