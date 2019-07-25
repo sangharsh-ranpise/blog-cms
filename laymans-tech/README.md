@@ -1,46 +1,17 @@
-# LaymansTech
-ng new app-name
-ng generate library library-name
-ng generate component component-name --project=library-name
+## Content Management System for blog
+This project is used to manage a particular blog.There are two project one application is for the viewers and other is the admin who can create blog topic and blogs.
+** This project is still in progress.Any contribution or suggestion is highly appreciated.
+To start the project:
+Go to laymans-tech and run the below command
+npm run users //for users
+npm run admin
 
-if you want to use the component somewhere elese than add that component in its modules export array
+To start the backend:
+Go to laymans-tech-backend:
+node server.js
+or
+nodemon
 
-To generate service inside a lib say core/service cmd is 
-ng service/serviceName --project=core
-npm install bootstrap
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-
-To generate  a new sub application
-use following command
-ng generate application  appName --routing
-
-
-
-sangharsh_ranpise
-Sangharsh@0216
+** Create a .env file in laymans-tech-backend and add the below line
+MONGO_CONNECTION_URL = 'mongodb://localhost:27017/'
+MONGO_AUTH = ''

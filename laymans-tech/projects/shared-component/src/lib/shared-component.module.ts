@@ -10,6 +10,7 @@ import { AllTopicsCardComponent } from './all-topics-card/all-topics-card.compon
 import { HomePageBlogComponent } from './home-page-blog/home-page-blog.component';
 import { ReadFullBlogComponent } from './read-full-blog/read-full-blog.component';
 import { BlogCardComponent } from './blog-card/blog-card.component';
+import { CoverPageComponent } from './cover-page/cover-page.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BlogCardComponent } from './blog-card/blog-card.component';
     AllTopicsCardComponent,
     HomePageBlogComponent,
     ReadFullBlogComponent,
-    BlogCardComponent
+    BlogCardComponent,
+    CoverPageComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { BlogCardComponent } from './blog-card/blog-card.component';
     LaymanTechContentComponent,
     FirstBlogComponent,
     HomePageBlogComponent,
-    ReadFullBlogComponent
+    ReadFullBlogComponent,
+    CoverPageComponent
   ]
 })
 export class SharedComponentModule { }
