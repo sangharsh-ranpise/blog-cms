@@ -11,6 +11,8 @@ import { HomePageBlogComponent } from './home-page-blog/home-page-blog.component
 import { ReadFullBlogComponent } from './read-full-blog/read-full-blog.component';
 import { BlogCardComponent } from './blog-card/blog-card.component';
 import { CoverPageComponent } from './cover-page/cover-page.component';
+import { LoginComponent } from './login/login.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { CoverPageComponent } from './cover-page/cover-page.component';
     HomePageBlogComponent,
     ReadFullBlogComponent,
     BlogCardComponent,
-    CoverPageComponent
+    CoverPageComponent,
+    LoginComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +40,9 @@ import { CoverPageComponent } from './cover-page/cover-page.component';
     FirstBlogComponent,
     HomePageBlogComponent,
     ReadFullBlogComponent,
-    CoverPageComponent
+    CoverPageComponent,
+    LoginComponent,
+    LoaderComponent
   ]
 })
 export class SharedComponentModule { }

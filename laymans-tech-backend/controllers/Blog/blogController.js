@@ -4,10 +4,14 @@ const blogService = require('./blogService');
 module.exports.getMenuLink = async (req, res) => {
     // console.log("CO<ING", req)
     try {
-
-        const menuLinkList = await blogService.getMenuLink();
-        // console.log(blog1)
-        res.json(menuLinkList)
+        let menuLinkList;
+        setTimeout(
+            async function () {
+                menuLinkList = await blogService.getMenuLink()
+                res.json(menuLinkList)
+            },
+            5000
+        )
 
     } catch (error) {
         throw error;

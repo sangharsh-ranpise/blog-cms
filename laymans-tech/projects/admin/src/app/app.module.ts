@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from 'projects/core/src/public_api';
 import { AllBlogComponent } from './all-blog/all-blog.component';
 import { CreateBlogComponent } from './create-blog/create-blog.component';
+import { SharedComponentModule } from 'projects/shared-component/src/public_api';
 
 @NgModule({
   declarations: [
@@ -33,8 +34,8 @@ import { CreateBlogComponent } from './create-blog/create-blog.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    CoreModule
-
+    CoreModule,
+    SharedComponentModule
   ],
   providers: [],
   bootstrap: [AppComponent]

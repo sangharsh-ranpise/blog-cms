@@ -1,6 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import {
+  HttpEvent,
   HttpRequest,
   HttpHandler,
   HttpInterceptor,
@@ -9,36 +10,33 @@ import {
 import { tap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 
-import { BlogService } from 'projects/core/src/lib/service/blog.service';
 import { LoaderService } from '../service/loader.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class LaymansTechHttpInterceptor implements HttpInterceptor {
-  private totalRequests = 0;
 
-  constructor(private loadingService: LoaderService) { }
+  constructor(private loaderService: LoaderService) { }
 
-  intercept(request: HttpRequest<any>, next: HttpHandler) {
-    // console.log("ABCCCCCCCCC")
-    this.totalRequests++;
-    this.loadingService.show();
-    return next.handle(request).pipe(
-      tap(res => {
-        if (res instanceof HttpResponse) {
-          this.decreaseRequests();
-        }
-      }),
-      catchError(err => {
-        this.decreaseRequests();
-        throw err;
-      })
-    );
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
+    this.showLoader();
+    return next.handle(req).pipe(tap((event: HttpEvent<any>) => {
+      if (event instanceof HttpResponse) {
+        this.onEnd();
+      }
+    },
+      (err: any) => {
+        this.onEnd();
+      }));
   }
-
-  private decreaseRequests() {
-    this.totalRequests--;
-    if (this.totalRequests === 0) {
-      this.loadingService.hide();
-    }
+  private onEnd(): void {
+    this.hideLoader();
+  }
+  private showLoader(): void {
+    this.loaderService.show();
+  }
+  private hideLoader(): void {
+    this.loaderService.hide();
   }
 }
