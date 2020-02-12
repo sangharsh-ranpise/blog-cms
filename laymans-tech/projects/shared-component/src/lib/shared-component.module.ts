@@ -13,6 +13,7 @@ import { BlogCardComponent } from './blog-card/blog-card.component';
 import { CoverPageComponent } from './cover-page/cover-page.component';
 import { LoginComponent } from './login/login.component';
 import { LoaderComponent } from './loader/loader.component';
+import { PortfolioModule } from 'projects/portfolio/src/public-api';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LoaderComponent } from './loader/loader.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    PortfolioModule
   ],
   exports: [
     SharedComponentComponent,

@@ -8,6 +8,6 @@ import { AboutMeComponent } from './about-me/about-me.component';
   declarations: [PortfolioComponent, AboutMeComponent],
   imports: [
   ],
-  exports: [PortfolioComponent]
+  exports: [PortfolioComponent,AboutMeComponent]
 })
 export class PortfolioModule { }
