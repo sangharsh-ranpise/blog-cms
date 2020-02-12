@@ -481,6 +481,46 @@
           }
         }
       }
+    },
+    "portfolio": {
+      "projectType": "library",
+      "root": "projects/portfolio",
+      "sourceRoot": "projects/portfolio/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/portfolio/tsconfig.lib.json",
+            "project": "projects/portfolio/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/portfolio/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/portfolio/src/test.ts",
+            "tsConfig": "projects/portfolio/tsconfig.spec.json",
+            "karmaConfig": "projects/portfolio/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/portfolio/tsconfig.lib.json",
+              "projects/portfolio/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "laymans-tech"

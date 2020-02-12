@@ -31,6 +31,10 @@
       ],
       "core/*": [
         "dist/core/*"
+      ],
+      "portfolio": [
+        "dist/portfolio/portfolio",
+        "dist/portfolio"
       ]
     }
   }
