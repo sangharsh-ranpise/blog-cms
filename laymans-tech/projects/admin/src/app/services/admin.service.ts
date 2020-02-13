@@ -16,7 +16,7 @@ export class AdminService {
   createBlog(newBlogContent: any) {
     const blogContent = {
       newBlogContent
-    }
+    };
     return this.httpClient.post(
       'http://localhost:8000/laymans-tech/blog/create/blog/', blogContent
     );
